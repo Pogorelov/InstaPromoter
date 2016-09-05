@@ -12,8 +12,9 @@ run the following command to install the required libraries:
 sudo pip install -r requirements.txt
 ```
 
-```
+
 Modify the InstaPromoterProfile.yml file to include your personal information. You can fill unlimited number of accounts and just specify the number of account in the run command.
+```
 INSTAGRAM1:  #account number - 1
   USERNAME1: #YOUR_INSTAGRAM_USERNAME
   PASSWORD1: #YOUR_INSTAGRAM_PASSWORD
@@ -38,4 +39,5 @@ py InstaPromoter_v2.py {account_number}
 ```
 
 LinkedIn: https://www.linkedin.com/in/pogorelovmaxim
+
 Facebook: https://www.facebook.com/Pogorelov23
