@@ -1,0 +1,11 @@
+INSTAGRAM1:  #account number - 1
+  USERNAME1: #YOUR_INSTAGRAM_USERNAME
+  PASSWORD1: #YOUR_INSTAGRAM_PASSWORD
+CREDENTIALS1:
+  CODE1: #Instagram provides a code for you in https://www.instagram.com/developer
+  CLIENT_ID1: #Instagram provides a cliend_id for you in https://www.instagram.com/developer
+  REDIRECT_URL1: #https://www.instagram.com/YOUR_INSTAGRAM_USERNAME
+SLEEPTIME: 10
+PER_HASHTAG: 20 #(Number of media posts for one hashtag)
+MAX_HASHTAGS: 10 #(Number of top hashtags)
+HOT_HASHTAGS: True #(True - top hashtags, False - read the file hashtags.txt)
