@@ -12,6 +12,7 @@ run the following command to install the required libraries:
 sudo pip install -r requirements.txt
 ```
 
+```
 Modify the InstaPromoterProfile.yml file to include your personal information. You can fill unlimited number of accounts and just specify the number of account in the run command.
 INSTAGRAM1:  #account number - 1
   USERNAME1: #YOUR_INSTAGRAM_USERNAME
@@ -29,6 +30,7 @@ SLEEPTIME: 10
 PER_HASHTAG: 20 (Number of media posts for one hashtag)
 MAX_HASHTAGS: 10 (Number of top hashtags)
 HOT_HASHTAGS: True (True - top hashtags, False - read the file hashtags.txt)
+```
 
 Run:
 ```
