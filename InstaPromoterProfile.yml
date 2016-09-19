@@ -8,4 +8,5 @@ CREDENTIALS1:
 SLEEPTIME: 10
 PER_HASHTAG: 20 #(Number of media posts for one hashtag)
 MAX_HASHTAGS: 10 #(Number of top hashtags)
+REPEAT_TIMES: 3 #(Number of repeats)
 HOT_HASHTAGS: True #(True - top hashtags, False - read the file hashtags.txt)

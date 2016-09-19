@@ -1,4 +1,5 @@
 import mechanize, yaml, re, time, sys, requests, hmac, urllib, json, cookielib, sys
+import datetime
 from hashlib import sha256
 
 
@@ -99,11 +100,14 @@ def getHeaders(csrftoken):
 
 def sendLike(link, cookie, headers, br):
 	# print('Cookies: %s\n\n' % cookie)
+	
+	result = False
 
 	# print('Headers: %s\n\n' % headers)
-	r = requests.post(link, cookies=cookie, headers=headers)
-
-	result = False
+	try:
+		r = requests.post(link, cookies=cookie, headers=headers)
+	except Exception: 
+		return result	
 
 	if r.status_code == 200:
 		result = True
@@ -130,11 +134,15 @@ def like(br, hashtags, nm):
 
 		link = INSTAGRAM_TAG_URL + hashtag
 	 
-	 	r = requests.get(link)
+	 	try:
+			r = requests.get(link)
+		except Exception: 
+			print('\nUnable to open link for %s hashtag!\n' % hashtag)
+			continue	
 
 	 	if r.status_code == 404:
 	 		print('\nPage not found for %s hashtag!\n' % hashtag)
-	 		break
+	 		continue
 
 	 	jsonResult = json.loads(re.findall('(window\.\_sharedData\s=\s\{.+};\<\/script>)', r.text.encode('utf-8'))[0][21:-10])
 
@@ -198,6 +206,17 @@ if __name__ == "__main__":
 	likes = 0
 
 	nm = str(sys.argv[1])
-	
-	# 10 times
-	runner(10, nm)
+
+	repeat_times = profile['REPEAT_TIMES']
+	perHashtag = profile['PER_HASHTAG']
+	maxHashtags = profile['MAX_HASHTAGS']
+
+	resultedLikes = repeat_times * perHashtag * maxHashtags
+
+	sleeptime = profile['SLEEPTIME']
+	sec = sleeptime * resultedLikes
+	dateTake = str(datetime.timedelta(seconds = sec))
+
+	print("Liked posts should be less or equal to %d and it will take around %s \n\n" % (resultedLikes, dateTake))
+
+	runner(repeat_times, nm)
